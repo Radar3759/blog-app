@@ -129,7 +129,7 @@
             </div>
             <div class="w-full container mx-auto flex flex-col items-center">
                
-                <div class="uppercase pb-6">&copy; loremIpsumBlog.com</div>
+                <div class="uppercase py-6">&copy; loremIpsumBlog.com</div>
             </div>
         </footer>
 
