@@ -20,9 +20,10 @@ class TextWidget extends Model
     public static function getTitle(string $key): string
     {
         $widget = \Illuminate\Support\Facades\Cache::get('text-widget-' .$key, function() use($key){
-        $widget = TextWidget::query()
+            return TextWidget::query()
         ->where('key', "=", $key)
-        ->where('active', '=', 1);
+        ->where('active', '=', 1)
+        ->first();
         });
 
         if ($widget) {
