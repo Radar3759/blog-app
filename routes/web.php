@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,4 +16,5 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\PostController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('home');
+Route::get('/{post:slug}', [App\Http\Controllers\PostController::class, 'show'])->name('view');
