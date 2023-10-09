@@ -46,6 +46,8 @@ class PostResource extends Resource
                     Forms\Components\RichEditor::make('body')
                         ->required()
                         ->columnSpanFull(),
+                    Forms\Components\TextInput::make('meta_title'),
+                    Forms\Components\TextInput::make('meta_description'),
                     Forms\Components\Toggle::make('active')
                         ->required(),
                     Forms\Components\DateTimePicker::make('published_at')
@@ -59,7 +61,7 @@ class PostResource extends Resource
                             Forms\Components\Select::make('categories')
                                 ->multiple()
                                 ->relationship('categories', 'title')
-                                // ->required(),
+                                
                         ])->columnSpan(4)
 
             ])->columns(12);
@@ -85,10 +87,7 @@ class PostResource extends Resource
                 Tables\Columns\TextColumn::make('user.name')
                     ->numeric()
                     ->sortable(),
-                // Tables\Columns\TextColumn::make('created_at')
-                //     ->dateTime()
-                //     ->sortable()
-                //     ->toggleable(isToggledHiddenByDefault: true),
+              
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()

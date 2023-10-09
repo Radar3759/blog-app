@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pizza Ipsum Blog</title>
-        <meta name="author" content="">
-        <meta name="description" content="">
+        <title>{{ $metaTitle ?: 'Pizza Ipsum Blog' }}</title>
+        <meta name="author" content="Pizza Ipsum Blog">
+        <meta name="description" content=>
 
         <!-- Tailwind -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
@@ -57,7 +57,7 @@
                 @foreach($categories as $category) 
                     <a href='{{route('by-category', $category)}}' class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">{{$category->title}}</a>
                 @endforeach
-                <a href="#"class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">
+                <a href='{{route('about-us')}}' class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">
                     About Us
                 </a>    
                 </div>
