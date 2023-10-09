@@ -9,9 +9,11 @@
         All Categories
       </h3>
       @foreach($categories as $category)
-      <a href="#" ckass = "text-semibold block py-2 px-3 rounded">
+        <a href="#"
+        
+        class="text-semibold block py-2 px-3 rounded">
         {{$category->title}} ({{$category->total}})
-      </a>
+        </a>
       @endforeach
     </div>
 
