@@ -98,14 +98,13 @@ class PostResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
+               
                     Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                
             ])
             ->emptyStateActions([
                 Tables\Actions\CreateAction::make(),
@@ -124,7 +123,6 @@ class PostResource extends Resource
         return [
             'index' => Pages\ListPosts::route('/'),
             'create' => Pages\CreatePost::route('/create'),
-          
             'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
     }    

@@ -9,10 +9,12 @@
         All Categories
       </h3>
       @foreach($categories as $category)
-        <a href="#"
-        
-        class="text-semibold block py-2 px-3 rounded">
-        {{$category->title}} ({{$category->total}})
+        <a href="{{ route('by-category', $category) }}"        
+        class="text-semibold block py-2 px-3 rounded
+        {{request('category')->slug === $category->slug ?
+        'bg-blue-600 text-white' : ''  }}" 
+        >
+          {{$category->title}} ({{$category->total}})
         </a>
       @endforeach
     </div>
