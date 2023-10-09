@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\PostView;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Models\Category;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -74,7 +77,7 @@ class PostController extends Controller
     public function byCategory(Category $category)
     {
         $posts = Post::query()
-            ->join('category_post', 'posts.id', '=', 'category_post.post.id' )
+            ->join('category_post', 'posts.id', '=', 'category_post.post_id' )
             ->where('category_post.category_id', '=', $category->id)
             ->where('active', '=', true)
             ->whereDate('published_at', '<=', Carbon::now())
