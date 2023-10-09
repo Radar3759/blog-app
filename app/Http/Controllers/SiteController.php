@@ -12,6 +12,7 @@ class SiteController extends Controller
     public function about(): View
     {
         $widget = TextWidget::query()
+        ->where('key', '=', 'about-page')
         ->where('active', '=', true)
         ->first();
 
