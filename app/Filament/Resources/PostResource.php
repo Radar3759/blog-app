@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Set;
 use Illuminate\Support\Str;
+use Filament\Forms\Components\TextInput;
 
 class PostResource extends Resource
 {
@@ -34,7 +35,7 @@ class PostResource extends Resource
                                 Forms\Components\TextInput::make('title')
                                     ->required()
                                     ->maxLength(2048)
-                                    ->live()
+                                    ->live(onBlur: true)
                                     ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
                                 Forms\Components\TextInput::make('slug')
                                 ->required()

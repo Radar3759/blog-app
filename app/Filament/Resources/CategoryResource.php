@@ -3,20 +3,14 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CategoryResource\Pages;
-use App\Filament\Resources\CategoryResource\RelationManagers;
 use Illuminate\Support\Str;
 use App\Models\Category;
-use Closure;
-use Fiber;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Stringable;
 use Filament\Forms\Set;
+use Filament\Forms\Components\TextInput;
 
 
 class CategoryResource extends Resource
@@ -31,13 +25,13 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
+                TextInput::make('title')
+                    ->live()
                     ->required()
                     ->maxLength(2048)
-                    ->live()
                     ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
-              
-                Forms\Components\TextInput::make('slug')
+    
+                TextInput::make('slug')
                     ->required()
                     ->maxLength(2048),
             ]);
@@ -53,7 +47,7 @@ class CategoryResource extends Resource
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     // ->sortable()
-                    // ->toggleable(isToggledHiddenByDefault: true),
+                    
             ])
             ->filters([
                 //
