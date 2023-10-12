@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Set;
 use Illuminate\Support\Str;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Section;
 
 class PostResource extends Resource
 {
@@ -28,7 +29,7 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Card::make()
+                Forms\Components\Section::make()
                     ->schema([
                         Forms\Components\Grid::make(2)
                             ->schema([    
@@ -56,7 +57,7 @@ class PostResource extends Resource
                     
                     ])->columnSpan(8),
                 
-                Forms\Components\Card::make()
+                Forms\Components\Section::make()
                         ->schema([
                             Forms\Components\FileUpload::make('thumbnail'),
                             Forms\Components\Select::make('categories')
