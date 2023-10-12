@@ -64,12 +64,9 @@
             </div>
         </nav>
 
-
         <div class="container mx-auto flex flex-wrap py-6">
 
-            {{ $slot }}
-
-            
+            {{ $slot }}        
 
         </div>
 
@@ -81,7 +78,6 @@
             </div>
         </footer>
 
-       
-
+   
     </body>
 </html>

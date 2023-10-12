@@ -8,7 +8,7 @@
       </h3>
       @foreach($categories as $category)
         <a href="{{ route('by-category', $category) }}"        
-        class="text-semibold block py-2 px-3 rounded
+        class="hover:bg-blue-600 hover:text-white text-semibold block py-2 px-3 rounded
         {{request('category')?->slug === $category->slug ?
         'bg-blue-600 text-white' : ''  }}" 
         >
